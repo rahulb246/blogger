@@ -9,8 +9,9 @@
                     <a href='{% url "posts:create" %}'>Write a story.....</a>
                 </div>
             </div>
+			<hr/>
 			{% endif %}
-    <h3>{{ 'Recent Posts' }}</h3>
+    
 {% for obj in object_list %}
 <div class="row">
   <div class="col-sm-12">
