@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 
+from django.utils import timezone
 from django.conf import settings
 from django.contrib.contenttypes.models import ContentType
 from django.core.urlresolvers import reverse
@@ -8,7 +9,7 @@ from django.db.models.signals import pre_save
 from django.utils import timezone
 from django.utils.safestring import mark_safe
 from django.utils.text import slugify
-from django.utils import timezone
+
 
 from markdown_deux import markdown
 from comments.models import Comment
@@ -24,8 +25,6 @@ class PostManager(models.Manager):
 
 
 def upload_location(instance, filename):
-    #filebase, extension = filename.split(".")
-    #return "%s/%s.%s" %(instance.id, instance.id, extension)
     PostModel = instance.__class__
     new_id = PostModel.objects.order_by("id").last().id + 1
     """
@@ -49,7 +48,7 @@ class Post(models.Model):
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
     content = models.TextField()
-    publish = models.DateField(default = timezone.now())
+    publish = models.DateField(default = timezone.now)
     read_time =  models.IntegerField(default=0) # models.TimeField(null=True, blank=True) #assume minutes
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
