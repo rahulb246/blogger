@@ -3,7 +3,7 @@
 
 <div class='col-sm-6 col-sm-offset-3'>
 
-{% if obj.user.authenticated %}
+{% if request.user.is_authenticated %}
             <div class="card">
                 <div class="card-content">
                     <a href='{% url "posts:create" %}'>Write a story.....</a>
