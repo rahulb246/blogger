@@ -3,12 +3,13 @@
 
 <div class='col-sm-6 col-sm-offset-3'>
 
-
+{% if obj.user.authenticated %}
             <div class="card">
                 <div class="card-content">
                     <a href='{% url "posts:create" %}'>Write a story.....</a>
                 </div>
             </div>
+			{% endif %}
     <h3>{{ 'Recent Posts' }}</h3>
 {% for obj in object_list %}
 <div class="row">
