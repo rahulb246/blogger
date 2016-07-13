@@ -12,6 +12,10 @@ h5{
 .navbar {
     height: auto;
 }
+#bs-example-navbar-collapse-1 {
+    position: relative;
+    z-index: 1;
+}
 
 .wmd-panel{
     margin-right: 0px !important;
